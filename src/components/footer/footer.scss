@@ -15,6 +15,10 @@ footer {
   &__line {
     color: $nav-color;
     font-size: 1.6rem;
+    @media only screen and(max-width:600px) {
+      text-align: center;
+      font-size: 1.3rem;
+    }
     a {
       color: $coral;
       &:hover {
