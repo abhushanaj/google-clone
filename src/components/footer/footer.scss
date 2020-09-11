@@ -1,0 +1,25 @@
+@import "../../sass/main";
+
+footer {
+  background: rgb(242, 242, 242);
+}
+
+.footer {
+  color: $nav-color;
+  padding-top: 2rem;
+  &__upper {
+    border-bottom: 1px solid $footer-border;
+    padding-bottom: 1rem;
+  }
+
+  &__line {
+    color: $nav-color;
+    font-size: 1.6rem;
+    a {
+      color: $coral;
+      &:hover {
+        color: rgba($coral, 0.6);
+      }
+    }
+  }
+}
