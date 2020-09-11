@@ -1,0 +1,15 @@
+@import "../../sass/main";
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 3.2rem;
+  height: 3.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  img {
+    max-width: 100%;
+    border-radius: 50%;
+  }
+}

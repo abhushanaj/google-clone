@@ -1,0 +1,8 @@
+.u-container {
+  max-width: 130rem;
+  margin: 0 auto;
+
+  @media only screen and(max-width:1200px) {
+    width: 90%;
+  }
+}

@@ -1,0 +1,47 @@
+@import "../../sass/main";
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 2rem;
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      padding: 0rem 1rem;
+    }
+    &:last-child {
+      padding-left: 1rem;
+    }
+
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      width: 3.2rem;
+      height: 3.2rem;
+      cursor: pointer;
+      border-radius: 50%;
+      img {
+        max-width: 100%;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &__link {
+    color: $nav-color;
+    font-size: 1.3rem;
+
+    &:hover,
+    &:focus {
+      opacity: 0.85;
+      text-decoration: underline;
+    }
+  }
+}
