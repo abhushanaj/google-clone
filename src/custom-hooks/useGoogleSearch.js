@@ -5,7 +5,7 @@ import axios from "axios";
 import { API_KEY, SEARCH_ID } from "../keys";
 
 const useGoogleSearch = (searchTerm) => {
-  const [result, setResult] = useState("");
+  const [response, setResult] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -23,14 +23,13 @@ const useGoogleSearch = (searchTerm) => {
         setResult(response.data);
       } catch (err) {
         setResult(null);
-        console.log("Error while Fetching!", err.response);
       }
     }
 
     fetchData();
   }, [searchTerm]);
 
-  return { result };
+  return { response };
 };
 
 export default useGoogleSearch;

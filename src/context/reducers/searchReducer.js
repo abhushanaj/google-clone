@@ -1,7 +1,7 @@
 import searchActionTypes from "../actiontypes/searchActionTypes";
 
 const searchReducer = (state, action) => {
-  console.log(action);
+  // console.log(action);
 
   switch (action.type) {
     case searchActionTypes.SET_SEARCH: {

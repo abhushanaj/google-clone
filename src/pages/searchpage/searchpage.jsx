@@ -10,23 +10,24 @@ import SearchResult from "../../components/searchResult/searchResult";
 import SearchSummary from "../../components/search-summary/search-summary";
 
 /* Hooks */
-// import useGoogleSearch from "../../custom-hooks/useGoogleSearch";
+import useGoogleSearch from "../../custom-hooks/useGoogleSearch";
 
 /* Styling */
 import "./searchpage.scss";
 
-/* Sample Response Mocking */
-
-import response from "../../sampleResponse";
+/* Sample Response */
+import sampleResponse from "../../sampleResponse";
 
 const SearchPage = () => {
   const [state] = useStateValue();
   const { searchTerm } = state;
 
   // Real API Call
-  // const { result } = useGoogleSearch(searchTerm);
+  const { response } = useGoogleSearch(searchTerm);
 
-  console.log(response);
+  const data = response ? response : sampleResponse;
+
+  console.log("Final Result to display", data);
 
   return (
     <div className="searchpage ">
@@ -45,8 +46,8 @@ const SearchPage = () => {
         </nav>
       </div>
       <div className="searchpage__body u-container">
-        <SearchSummary summary={response.searchInformation} />
-        {response.items.map((item, id) => {
+        <SearchSummary summary={data.searchInformation} />
+        {data.items.map((item, id) => {
           return <SearchResult display={item} key={id} />;
         })}
       </div>
