@@ -1,1 +1,51 @@
 @import "../../sass/main";
+
+.navbar__contain {
+  border-bottom: 1px solid $light-gray;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.searchpage {
+  min-height: 100vh;
+  &__navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem 0rem;
+    max-width: 60%;
+    @media only screen and(max-width:780px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .search {
+      width: 50%;
+      margin: 0;
+      @media only screen and(max-width:780px) {
+        width: 100%;
+      }
+    }
+    .search .search__box {
+      height: 40px;
+      width: 100%;
+    }
+    .search .search__buttons {
+      margin: 0;
+    }
+  }
+}
+
+.logo-box {
+  width: 10rem;
+  margin-right: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  img {
+    max-width: 100%;
+  }
+}

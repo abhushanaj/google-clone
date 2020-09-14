@@ -1,13 +1,9 @@
-import React, { useState } from "react";
-
-import axios from "axios";
+import React from "react";
 
 /* Child Components */
 import GridIcon from "../../components/icons/grid-icon";
-import SearchIcon from "../../components/icons/search-icon";
-import MicIcon from "../../components/icons/mic-icon";
 import Avatar from "../../components/avatar/avatar";
-import JokeBox from "../../components/joke-box/joke-box";
+import Search from "../../components/search/search";
 
 /* Asset */
 
@@ -15,25 +11,6 @@ import JokeBox from "../../components/joke-box/joke-box";
 import "./homepage.scss";
 
 const HomePage = () => {
-  const [search, setSearch] = useState("");
-  const [joke, setJoke] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setJoke("");
-  };
-
-  const handleJokes = async (e) => {
-    try {
-      const response = await axios.get(
-        "https://api.chucknorris.io/jokes/random"
-      );
-      setJoke(response.data.value);
-    } catch (err) {
-      setJoke("");
-    }
-  };
-
   return (
     <main className="homepage u-container">
       <nav className="navbar">
@@ -66,34 +43,7 @@ const HomePage = () => {
             alt="Google brand logo"
           />
         </div>
-        <form className="search" onSubmit={handleSubmit}>
-          <div className="searchbox">
-            <SearchIcon />
-            <input
-              type="text"
-              className="searchbox__input"
-              value={search}
-              onChange={(e) => {
-                setSearch(e.target.value);
-                setJoke("");
-              }}
-            />
-            <MicIcon />
-          </div>
-          <div className="search__buttons">
-            <button className="btn btn--gray" type="submit">
-              Google Search
-            </button>
-            <button
-              className="btn btn--gray"
-              type="button"
-              onClick={handleJokes}
-            >
-              I'm Feeling Lucky
-            </button>
-          </div>
-        </form>
-        {joke && <JokeBox joke={joke} />}
+        <Search />
       </div>
     </main>
   );
