@@ -7,6 +7,7 @@ import { useStateValue } from "../../context/context";
 /* Components */
 import Search from "../../components/search/search";
 import SearchResult from "../../components/searchResult/searchResult";
+import SearchSummary from "../../components/search-summary/search-summary";
 
 /* Hooks */
 // import useGoogleSearch from "../../custom-hooks/useGoogleSearch";
@@ -44,6 +45,7 @@ const SearchPage = () => {
         </nav>
       </div>
       <div className="searchpage__body u-container">
+        <SearchSummary summary={response.searchInformation} />
         {response.items.map((item, id) => {
           return <SearchResult display={item} key={id} />;
         })}
