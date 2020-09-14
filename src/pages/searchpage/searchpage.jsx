@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+/* Context Consumer */
+import { useStateValue } from "../../context/context";
+
 /* Components */
 import Search from "../../components/search/search";
 
@@ -8,6 +11,10 @@ import Search from "../../components/search/search";
 import "./searchpage.scss";
 
 const SearchPage = () => {
+  const [state] = useStateValue();
+  const { searchTerm } = state;
+  console.log(searchTerm);
+
   return (
     <div className="searchpage ">
       <div className="navbar__contain">

@@ -1,19 +1,35 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 // import axios from "axios";
 
+/* Context Usage */
+import { useStateValue } from "../../context/context";
+
+/* Action Types */
+import searchActionTypes from "../../context/actiontypes/searchActionTypes";
+
+/* Child Components */
 import SearchIcon from "../icons/search-icon";
 import MicIcon from "../icons/mic-icon";
 
 /* Styling */
-
 import "./search.scss";
 
 const Search = ({ hideButtons }) => {
   const [search, setSearch] = useState("");
+  const history = useHistory();
+  const [, dispatch] = useStateValue();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitted >>>", search);
+
+    // Dispatch Action to set the search query
+    dispatch({
+      type: searchActionTypes.SET_SEARCH,
+      payload: search,
+    });
+
+    history.push("/search");
   };
 
   return (
