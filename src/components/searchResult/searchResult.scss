@@ -1,0 +1,54 @@
+@import "../../sass/main";
+
+.result {
+  width: 50%;
+  margin-bottom: 2rem;
+  @media only screen and(max-width:1200px) {
+    width: 80%;
+  }
+
+  @media only screen and(max-width:700px) {
+    width: 90%;
+  }
+
+  small {
+    font-size: 1.4rem;
+    font-weight: 400;
+    @media only screen and(max-width:500px) {
+      font-size: 1.2rem;
+    }
+    a {
+      color: rgb(32, 33, 36);
+      cursor: hover;
+    }
+  }
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 3px;
+    padding-top: 4px;
+    @media only screen and(max-width:500px) {
+      font-size: 1.6rem;
+    }
+    a {
+      color: $result-blue;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:visted {
+        color: $result-visited;
+      }
+    }
+  }
+
+  p {
+    color: rgb(77, 81, 86);
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: 400;
+    @media only screen and(max-width:500px) {
+      font-size: 1.2rem;
+    }
+  }
+}

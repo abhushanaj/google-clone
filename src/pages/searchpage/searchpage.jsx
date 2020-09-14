@@ -6,14 +6,26 @@ import { useStateValue } from "../../context/context";
 
 /* Components */
 import Search from "../../components/search/search";
+import SearchResult from "../../components/searchResult/searchResult";
+
+/* Hooks */
+// import useGoogleSearch from "../../custom-hooks/useGoogleSearch";
 
 /* Styling */
 import "./searchpage.scss";
 
+/* Sample Response Mocking */
+
+import response from "../../sampleResponse";
+
 const SearchPage = () => {
   const [state] = useStateValue();
   const { searchTerm } = state;
-  console.log(searchTerm);
+
+  // Real API Call
+  // const { result } = useGoogleSearch(searchTerm);
+
+  console.log(response);
 
   return (
     <div className="searchpage ">
@@ -27,8 +39,14 @@ const SearchPage = () => {
               />
             </Link>
           </div>
+
           <Search hideButtons />
         </nav>
+      </div>
+      <div className="searchpage__body u-container">
+        {response.items.map((item, id) => {
+          return <SearchResult display={item} key={id} />;
+        })}
       </div>
     </div>
   );
