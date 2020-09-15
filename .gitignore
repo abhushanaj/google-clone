@@ -24,3 +24,5 @@ yarn-error.log*
 
 /src/keys.js
 
+.env
+.vercel
