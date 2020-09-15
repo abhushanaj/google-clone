@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 /* Keys */
-import { API_KEY, SEARCH_ID } from "../keys";
+// import { API_KEY, SEARCH_ID } from "../keys";
 import sampleResponse from "../sampleResponse";
 
 const useGoogleSearch = (searchTerm) => {
@@ -15,8 +15,8 @@ const useGoogleSearch = (searchTerm) => {
           "https://www.googleapis.com/customsearch/v1",
           {
             params: {
-              key: API_KEY,
-              cx: SEARCH_ID,
+              key: process.env.REACT_APP_API_KEY,
+              cx: process.env.REACT_APP_ID,
               q: searchTerm,
             },
           }
