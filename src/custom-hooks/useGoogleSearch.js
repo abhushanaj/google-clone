@@ -12,7 +12,7 @@ const useGoogleSearch = (searchTerm) => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://www.googleapis.com/customsearc",
+          "https://www.googleapis.com/customsearch/v1",
           {
             params: {
               key: API_KEY,

@@ -25,12 +25,16 @@ const Search = ({ hideButtons }) => {
     e.preventDefault();
 
     // Dispatch Action to set the search query
-    dispatch({
-      type: searchActionTypes.SET_SEARCH,
-      payload: search,
-    });
-
-    history.push("/search");
+    if (search.length < 1) {
+      return;
+    } else {
+      console.log("Triggered!");
+      dispatch({
+        type: searchActionTypes.SET_SEARCH,
+        payload: search,
+      });
+      history.push("/search");
+    }
   };
 
   return (

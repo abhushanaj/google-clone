@@ -22,7 +22,7 @@ const SearchPage = () => {
 
   // Real API Call
   const { response } = useGoogleSearch(searchTerm);
-  console.log(response);
+  // console.log(response);
 
   return (
     <div className="searchpage ">
