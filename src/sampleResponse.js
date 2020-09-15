@@ -1,5 +1,7 @@
 const response = {
   kind: "customsearch#search",
+  defaultMessage:
+    "This is a sample response since the app has crossed 100 free searches per day.",
   url: {
     type: "application/json",
     template:

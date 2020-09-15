@@ -3,6 +3,7 @@ import axios from "axios";
 
 /* Keys */
 import { API_KEY, SEARCH_ID } from "../keys";
+import sampleResponse from "../sampleResponse";
 
 const useGoogleSearch = (searchTerm) => {
   const [response, setResult] = useState("");
@@ -11,7 +12,7 @@ const useGoogleSearch = (searchTerm) => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://www.googleapis.com/customsearch/v1",
+          "https://www.googleapis.com/customsearc",
           {
             params: {
               key: API_KEY,
@@ -22,7 +23,8 @@ const useGoogleSearch = (searchTerm) => {
         );
         setResult(response.data);
       } catch (err) {
-        setResult(null);
+        setResult(sampleResponse);
+        // console.log("Error Conditions triggered!");
       }
     }
 

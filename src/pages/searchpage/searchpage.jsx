@@ -6,8 +6,9 @@ import { useStateValue } from "../../context/context";
 
 /* Components */
 import Search from "../../components/search/search";
-import SearchResult from "../../components/searchResult/searchResult";
-import SearchSummary from "../../components/search-summary/search-summary";
+// import SearchResult from "../../components/searchResult/searchResult";
+// import SearchSummary from "../../components/search-summary/search-summary";
+import SearchShowcase from "../../components/search-showcase/search-showcase";
 
 /* Hooks */
 import useGoogleSearch from "../../custom-hooks/useGoogleSearch";
@@ -15,19 +16,13 @@ import useGoogleSearch from "../../custom-hooks/useGoogleSearch";
 /* Styling */
 import "./searchpage.scss";
 
-/* Sample Response */
-import sampleResponse from "../../sampleResponse";
-
 const SearchPage = () => {
   const [state] = useStateValue();
   const { searchTerm } = state;
 
   // Real API Call
   const { response } = useGoogleSearch(searchTerm);
-
-  const data = response ? response : sampleResponse;
-
-  console.log("Final Result to display", data);
+  console.log(response);
 
   return (
     <div className="searchpage ">
@@ -41,16 +36,10 @@ const SearchPage = () => {
               />
             </Link>
           </div>
-
           <Search hideButtons />
         </nav>
       </div>
-      <div className="searchpage__body u-container">
-        <SearchSummary summary={data.searchInformation} />
-        {data.items.map((item, id) => {
-          return <SearchResult display={item} key={id} />;
-        })}
-      </div>
+      {response.items !== undefined && <SearchShowcase data={response} />}
     </div>
   );
 };

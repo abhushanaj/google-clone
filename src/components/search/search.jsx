@@ -16,9 +16,10 @@ import MicIcon from "../icons/mic-icon";
 import "./search.scss";
 
 const Search = ({ hideButtons }) => {
-  const [search, setSearch] = useState("");
+  const [{ searchTerm }, dispatch] = useStateValue();
+
+  const [search, setSearch] = useState(searchTerm);
   const history = useHistory();
-  const [, dispatch] = useStateValue();
 
   const handleSubmit = (e) => {
     e.preventDefault();
