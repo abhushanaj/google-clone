@@ -12,6 +12,7 @@
   }
 
   &__item {
+    position: relative;
     &:not(:last-child) {
       padding: 0rem 1rem;
     }

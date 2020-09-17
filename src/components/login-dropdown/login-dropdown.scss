@@ -1,0 +1,52 @@
+@import "../../sass/main";
+
+.login__dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid $light-gray;
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  right: -1rem;
+  top: 4rem;
+  z-index: 100;
+  min-width: 25rem;
+  background: #fff;
+}
+
+.person__image {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  img {
+    max-width: 100%;
+    border-radius: 50%;
+  }
+}
+
+.person__details {
+  margin-top: 10px;
+  h2 {
+    font-weight: bold;
+    color: rgb(32, 33, 36);
+    font-size: 1.7rem;
+    font-family: "Noto Sans TC", sans-serif;
+    text-align: center;
+  }
+  p {
+    font-family: "Noto Sans TC", sans-serif;
+    color: rgb(95, 99, 104);
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 5px;
+    font-weight: 500;
+  }
+}
+
+.signin__container,
+.signout__container {
+  margin: 1.5rem auto;
+}

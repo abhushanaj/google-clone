@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 /* Child Components */
 import GridIcon from "../../components/icons/grid-icon";
 import Avatar from "../../components/avatar/avatar";
 import Search from "../../components/search/search";
+import LoginDropdown from "../../components/login-dropdown/login-dropdown";
 
 /* Asset */
 
@@ -11,6 +12,7 @@ import Search from "../../components/search/search";
 import "./homepage.scss";
 
 const HomePage = () => {
+  const [showLoginDropdown, setLoginDropdown] = useState(false);
   return (
     <main className="homepage u-container">
       <nav className="navbar">
@@ -31,7 +33,8 @@ const HomePage = () => {
             </a>
           </li>
           <li className="navbar__item">
-            <Avatar />
+            <Avatar onClick={() => setLoginDropdown(!showLoginDropdown)} />
+            {showLoginDropdown ? <LoginDropdown /> : null}
           </li>
         </ul>
       </nav>
