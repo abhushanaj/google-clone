@@ -1,34 +1,48 @@
-import React, { useState } from "react";
+import React from "react";
 
 /* Styling*/
 import "./login-dropdown.scss";
 
+/* Firebase Utilities */
+import { signInWithGoogle, auth } from "../../firebase/firebase.utils";
+
+/* Context Utilities */
+import { useStateValue } from "../../context/context";
+
 /* Asset */
 import defaultImage from "../../asset/default.jpg";
 
-const LoginDropdown = ({ image, name, email }) => {
-  const imageSrc = image ? image : defaultImage;
-  const [isLoggedIn] = useState(false);
+const LoginDropdown = () => {
+  const [{ authDetails }] = useStateValue();
+
+  const imageSrc = authDetails ? authDetails.photoURL : defaultImage;
 
   return (
     <div className="login__dropdown">
       <div className="person__image">
         <img src={imageSrc} alt="Person Avatar" />
       </div>
-      {isLoggedIn ? (
+      {authDetails ? (
         <div className="person__details">
-          <h2>Abhushan Adhikari Joshi</h2>
-          <p>abhushanadhikarijoshi@gmail.com</p>
+          <h2>{authDetails.displayName}</h2>
+          <p>{authDetails.email}</p>
         </div>
       ) : null}
 
-      {isLoggedIn ? (
+      {authDetails ? (
         <div className="signout__container">
-          <button className="btn btn--gray">Sign Out</button>
+          <button className="btn btn--gray" onClick={() => auth.signOut()}>
+            Sign Out
+          </button>
         </div>
       ) : (
         <div className="signin__container">
-          <button className="btn btn--gray">Sign In</button>
+          <button
+            className="btn btn--gray"
+            onClick={async () => await signInWithGoogle()}
+          >
+            Sign In
+          </button>
         </div>
       )}
     </div>
